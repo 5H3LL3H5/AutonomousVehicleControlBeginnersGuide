@@ -125,8 +125,6 @@ Planning
 #### D*
 Planning with dynamic obstacle replanning  
 ![](src/simulations/path_planning/dstar_path_planning/dstar_search.gif)  
-Navigation (car switches to replanned path mid-drive)  
-![](src/simulations/path_planning/dstar_path_planning/dstar_navigate.gif)  
 #### Dijkstra
 Planning(Reduce frames by sampling every nth node to prevent memory exhaustion)  
 ![](src/simulations/path_planning/dijkstra_path_planning/dijkstra_search.gif)  

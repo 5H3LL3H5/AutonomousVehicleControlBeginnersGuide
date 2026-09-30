@@ -1,7 +1,9 @@
 """
 rrt_star_bidirectional_path_planning.py
 
-Author: Auto-generated
+Title: Bidirectional RRT*
+Description: Grows RRT* trees from both the start and the goal and connects them
+Author: Erwin Lejeune
 """
 
 # import path setting

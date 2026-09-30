@@ -1,6 +1,8 @@
 """
 cubic_spline_plot.py
 
+Title: Cubic Spline Course
+Description: Interpolates sample points with a 1D cubic spline
 Author: Shisato Yano
 """
 

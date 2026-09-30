@@ -1,16 +1,9 @@
 """
 q_learning_path_planning.py
 
-Simulation that demonstrates Q-learning path planning.
-
-Two GIFs are produced:
-    1. **q_learning_search.gif** - grid animation showing training progress
-       and the learned greedy policy.
-    2. **q_learning_navigate.gif** - car-following navigation on the planned
-       path using PurePursuit.
-
+Title: Q-Learning
+Description: Learns a Q-table policy on the grid by reinforcement learning and follows its greedy path
 Author: Banaan Kiamanesh
-GitHub: https://github.com/BanaanKiamanesh
 """
 
 import json

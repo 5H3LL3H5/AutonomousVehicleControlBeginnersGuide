@@ -1,16 +1,9 @@
 """
 ga_path_planning.py
 
-Simulation that demonstrates Genetic Algorithm (GA) path planning.
-
-Two GIFs are produced:
-    1. **ga_search.gif** - grid animation showing GA convergence and the
-       final spline path.
-    2. **ga_navigate.gif** - car-following navigation on the planned path
-       using PurePursuit.
-
+Title: GA
+Description: Genetic Algorithm: evolves candidate paths and smooths the best one with a spline
 Author: Banaan Kiamanesh
-GitHub: https://github.com/BanaanKiamanesh
 """
 
 import json

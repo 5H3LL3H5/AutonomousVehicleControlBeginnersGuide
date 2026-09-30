@@ -1,6 +1,8 @@
 """
 dijkstra_path_planning.py
 
+Title: Dijkstra
+Description: Grid-based shortest path search that expands the lowest-cost node first
 Author: Ashish Varma
 """
 

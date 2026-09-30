@@ -1,14 +1,8 @@
 """
 prm_path_planning.py
 
-Simulation that demonstrates Probabilistic Road Map (PRM) path planning.
-
-Two GIFs are produced:
-    1. **prm_search.gif** – grid animation: sampling nodes, connecting
-       edges, Dijkstra search, and final path.
-    2. **prm_navigate.gif** – car-following navigation on the planned path
-       using PurePursuit.
-
+Title: PRM
+Description: Samples random nodes, connects them into a roadmap and searches it with Dijkstra
 Author: Erwin Lejeune
 """
 

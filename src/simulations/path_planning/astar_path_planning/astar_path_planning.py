@@ -1,6 +1,8 @@
 """
 astar_path_planning.py
 
+Title: A*
+Description: Grid-based shortest path search guided by a heuristic distance to the goal
 Author: Shantanu Parab
 """
 

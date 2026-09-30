@@ -1,9 +1,9 @@
 """
-lidar_obstacle_sensing.py
+vfh_polar_histogram_construction.py
 
-Title: LiDAR Obstacle Sensing
-Description: Simulates an omni-directional LiDAR that detects moving and static obstacles as point clouds
-Author: Shisato Yano
+Title: VFH Polar Histogram
+Description: Builds a polar obstacle density histogram around the vehicle from LiDAR point clouds
+Author: Khushi
 """
 
 # import path setting
@@ -20,6 +20,7 @@ sys.path.append(abs_dir_path + relative_path + "vehicle")
 sys.path.append(abs_dir_path + relative_path + "obstacle")
 sys.path.append(abs_dir_path + relative_path + "sensors")
 sys.path.append(abs_dir_path + relative_path + "sensors/lidar")
+sys.path.append(abs_dir_path + relative_path + "mapping/polar_histogram")
 
 
 # import component modules
@@ -34,6 +35,7 @@ from obstacle_list import ObstacleList
 from sensors import Sensors
 from sensor_parameters import SensorParameters
 from omni_directional_lidar import OmniDirectionalLidar
+from polar_histogram_mapper import PolarHistogramMapper
 
 
 # flag to show plot figure
@@ -45,12 +47,15 @@ def main():
     """
     Main process function
     """
-    
+
     # set simulation parameters
     x_lim, y_lim = MinMax(-30, 30), MinMax(-30, 30)
     vis = GlobalXYVisualizer(x_lim, y_lim, TimeParameters(span_sec=20))
 
     # create obstacle instances
+    # same moving/static obstacle scenario as the existing lidar_obstacle_sensing sample,
+    # so the polar histogram's reaction to obstacles can be compared directly against
+    # the raw point cloud it is built from
     obst_list = ObstacleList()
     obst1 = Obstacle(State(x_m=-5.0, y_m=15.0, speed_mps=1.0), yaw_rate_rps=np.deg2rad(10), width_m=1.0)
     obst_list.add_obstacle(obst1)
@@ -60,10 +65,14 @@ def main():
     obst_list.add_obstacle(obst3)
     vis.add_object(obst_list)
 
-    # create vehicle instance
-    spec = VehicleSpecification(area_size=30.0) # spec instance
-    lidar = OmniDirectionalLidar(obst_list, SensorParameters(lon_m=spec.wheel_base_m/2)) # lidar instance
-    vehicle = FourWheelsVehicle(State(color=spec.color), spec, sensors=Sensors(lidar=lidar)) # set state, spec, lidar as arguments
+    # create vehicle instance with polar histogram mapper
+    spec = VehicleSpecification(area_size=30.0)  # spec instance
+    sensor_params = SensorParameters(lon_m=spec.wheel_base_m/2)
+    lidar = OmniDirectionalLidar(obst_list, sensor_params)  # lidar instance
+    mapper = PolarHistogramMapper(sensor_params=sensor_params,
+                                  num_sectors=72, smoothing_window=5)  # polar histogram mapper instance
+    vehicle = FourWheelsVehicle(State(color=spec.color), spec,
+                                sensors=Sensors(lidar=lidar), mapper=mapper)  # set state, spec, lidar, mapper as arguments
     vis.add_object(vehicle)
 
     # plot figure is not shown when executed as unit test

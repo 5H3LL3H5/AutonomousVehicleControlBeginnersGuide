@@ -1,6 +1,8 @@
 """
 point_cloud_rectangle_fitting.py
 
+Title: Rectangle Fitting Detection
+Description: Fits a rectangle to each obstacle's point cloud by L-shape fitting
 Author: Shisato Yano
 """
 

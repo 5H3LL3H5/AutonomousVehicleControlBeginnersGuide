@@ -1,6 +1,8 @@
 """
 astar_hybrid_path_planning.py
 
+Title: Hybrid A*
+Description: A* search over continuous vehicle poses using motion primitives that respect the minimum turning radius
 Author: Shreyansh Shethia
 """
 

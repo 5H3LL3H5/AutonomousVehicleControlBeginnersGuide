@@ -1,7 +1,9 @@
 """
 astar_bidirectional_path_planning.py
 
-Author: Auto-generated
+Title: Bidirectional A*
+Description: Runs A* search from both the start and the goal until the two searches meet
+Author: Erwin Lejeune
 """
 
 # import path setting
